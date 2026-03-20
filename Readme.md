@@ -39,7 +39,7 @@ or\
 
 ## 📁 Project Structure
 
-    ├── heart_disease_predict.py     # Streamlit app code
+    ├── app.py     # Streamlit app code
     ├── model.pkl                    # Trained ML model
     ├── Heart_Disease_Prediction.csv # Dataset used for training
     ├── .gitignore                   # used to ignore some files like virtual enviroment
@@ -108,7 +108,6 @@ The app will automatically open in your browser.
 
 ## 💡 Future Improvements
 
--   Deploy the app on Render/Streamlit Cloud\
 -   Add feature importance graphs\
 -   Show model accuracy reports\
 -   Improve UI/UX

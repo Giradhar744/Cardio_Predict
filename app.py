@@ -11,7 +11,7 @@ with open('model.pkl', 'rb') as file:
     model = pickle.load(file)
 
 # Load the dataset
-dataset_path = "Heart_Disease_Prediction.csv"  # Replace with your dataset file path
+dataset_path = "Heart_Disease_Prediction.csv"
 df = pd.read_csv(dataset_path)
 
 # Sidebar
@@ -32,11 +32,11 @@ if section == "Home":
         - **Dataset**: View the dataset used for training the model.
         """
     )
-    st.image("home_image.png", caption="Heart Health Awareness", use_column_width=True)
+    st.image("https://cdn.britannica.com/88/22488-050-8AAD90B0/conduction-heart-individuals-sinoatrial-node-pacemaker-cells.jpg", caption="Heart Health Awareness", use_container_width=True)
 
 # Prediction Section
 elif section == "Prediction":
-    st.image("prediction_image.png")
+    st.image("https://cdn.dribbble.com/userupload/29393528/file/original-00ea843ddd95ac7b6b2e036f3de11015.png?resize=752x&vertical=center", use_container_width=True)
     st.title("Heart Disease Prediction")
     st.write("Enter the following details:")
 
@@ -76,9 +76,7 @@ elif section == "Dataset":
 
     if graph == "Non-interactive":
         set1 = ['blue', 'red']
-
-        fig= sns.lmplot(
-       
+        fig = sns.lmplot(
             y="Age",
             x="Cholesterol",
             hue="Heart Disease",
@@ -87,7 +85,6 @@ elif section == "Dataset":
             data=filtered_data,
             height=5,
             aspect=1
-           
         )
         st.pyplot(fig)
 
@@ -98,9 +95,7 @@ elif section == "Dataset":
         y_column = st.selectbox("Select Y-axis Column", df.columns)
         bin_size = st.slider("Select Bin Size", 5, 50, 20)
 
-        # Create the hexbin plot using Plotly
         fig = go.Figure()
-
         fig.add_trace(
             go.Histogram2d(
                 x=filtered_data[x_column],
@@ -111,7 +106,6 @@ elif section == "Dataset":
                 colorbar=dict(title="Density"),
             )
         )
-
         fig.update_layout(
             title=f"Hexbin Plot: {x_column} vs {y_column}",
             xaxis_title=x_column,
@@ -120,5 +114,4 @@ elif section == "Dataset":
             width=800,
             height=600,
         )
-
         st.plotly_chart(fig)
